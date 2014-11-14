@@ -19,16 +19,16 @@ class Flags implements ArrayAccess, Countable, Iterator, Serializable {
 		$flags = array();
 	}
 	// The core of the class
-	function __set(string $name, mixed $value) {
+	function __set($name, $value) {
 		return $this->offsetSet($name, $value);
 	}
-	function __get(string $name) {
+	function __get($name) {
 		return $this->offsetGet($name);
 	}
-	function __isset(string $name) {
+	function __isset($name) {
 		return $this->offsetExists($name);
 	}
-	function __unset(string $name) {
+	function __unset($name) {
 		return $this->offsetUnset($name);
 	}
 	public function offsetSet($offset, $value) {
@@ -52,9 +52,9 @@ class Flags implements ArrayAccess, Countable, Iterator, Serializable {
 		return isset($this->flags[$offset]);
 	}
 	public function offsetUnset($offset) {
-		unset($this->flags[$name]);
+		unset($this->flags[$offset]);
 	}
-	function __call(string $name, array $args) {
+	function __call($name, $args) {
 		$v = -1;
 		if (count($args) > 0) {
 			$v = $args[0] ? 1 : 0;
