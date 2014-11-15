@@ -50,10 +50,4 @@ class MalformedSyntaxException extends InfoException {
 	}
 }
 
-class StrictException extends InfoException {
-	function getDefaultExtraData() {
-		return "strict flag set";
-	}
-}
-
 ?>
