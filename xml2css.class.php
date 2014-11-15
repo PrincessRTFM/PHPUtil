@@ -263,20 +263,20 @@ EOH;
 		xml_parse($this->parser, $xml);
 	}
 	function __invoke($data) {
-		$old = $this->css;
-		$this->css = "";
+		$tmp = new XML2CSS($this->flags->strict);
 		if (file_exists($data)) {
 			$xml = file_get_contents($data);
 			if ($xml !== false) {
-				$this->from($xml);
+				$tmp->from($xml);
+			}
+			else {
+				$tmp->from("<?xml version=\"1.0\"?><css><comment>Unable to read file $data</comment></css>");
 			}
 		}
 		else {
-			$this->from($data);
+			$tmp->from($data);
 		}
-		$ret = $this->__toString();
-		$this->css = $old;
-		return $ret;
+		return $tmp->__toString();
 	}
 	function __toString() {
 		return self::HEADER . "\n\n\n" . $this->css;
