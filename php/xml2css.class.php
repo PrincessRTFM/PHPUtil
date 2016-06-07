@@ -13,7 +13,7 @@ class XML2CSS implements Serializable {
 |                                                                     |
 |                                                                     |
 |                             designed by                             |
-|                             RisingDemon                             |
+|                            Princess RTFM                            |
 |                      lilith.rises.24@gmail.com                      |
 +---------------------------------------------------------------------+
 EOH;
